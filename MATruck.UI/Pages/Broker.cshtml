@@ -1,0 +1,47 @@
+﻿@page
+@model MATruck.UI.Pages.BrokersModel
+@{
+}
+
+    <div>
+        <form method="post">
+            <label>Name</label>
+            <input asp-for="Broker.Name" />
+            <label>Description</label>
+            <input asp-for="Broker.Description" />
+            <label>Email</label>
+            <input asp-for="Broker.Email" />
+            <label>Phone1</label>
+            <input asp-for="Broker.Phone1" />
+            <label>Phone2</label>
+            <input asp-for="Broker.Phone2" />
+            <label>Address1</label>
+            <input asp-for="Broker.Address1" />
+            <label>Address2</label>
+            <input asp-for="Broker.Address2" />
+            <label>City</label>
+            <input asp-for="Broker.City" />
+            <label>State</label>
+            <input asp-for="Broker.State" />
+            <label>ZipCode</label>
+            <input asp-for="Broker.ZipCode" />
+            <label>Created</label>
+            <input asp-for="Broker.Created" />
+            <label>Status</label>
+            <input asp-for="Broker.Status" />
+
+            <input type="submit" value="Save Broker" />
+        </form>
+
+    </div>
+
+<div>
+    @{ 
+        foreach (var p in Model.Brokers)
+        {
+            <p>
+                @p.Name - @p.Email - @p.Address1 - @p.Phone1 - @p.Phone2
+            </p>
+        }
+    }
+</div>
