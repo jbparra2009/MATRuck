@@ -34,7 +34,6 @@ namespace MATruck.Application.CreateDispatches
                 SS = vm.SS,
                 CorpName = vm.CorpName,
                 EIN = vm.EIN,
-                Created = vm.Created,
                 Status = vm.Status,
             });
 
@@ -65,7 +64,6 @@ namespace MATruck.Application.CreateDispatches
         public string CorpName { get; set; }
         public string EIN { get; set; }
 
-        public DateTime Created { get; set; }
         public string Status { get; set; } // Active, Standby, Deleted.
 
     }

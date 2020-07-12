@@ -6,7 +6,7 @@
     <div>
         <form method="post">
             <label>Name</label>
-            <input asp-for="Broker.Name" />
+            <input asp-for="Broker.BrokerName" />
             <label>Description</label>
             <input asp-for="Broker.Description" />
             <label>Email</label>
@@ -25,8 +25,6 @@
             <input asp-for="Broker.State" />
             <label>ZipCode</label>
             <input asp-for="Broker.ZipCode" />
-            <label>Created</label>
-            <input asp-for="Broker.Created" />
             <label>Status</label>
             <input asp-for="Broker.Status" />
 
@@ -40,7 +38,7 @@
         foreach (var p in Model.Brokers)
         {
             <p>
-                @p.Name - @p.Email - @p.Address1 - @p.Phone1 - @p.Phone2
+                @p.BrokerName - @p.Email - @p.Address1 - @p.Phone1 - @p.Phone2
             </p>
         }
     }

@@ -1,8 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace MATruck.Domain.Models
 {
@@ -18,7 +15,9 @@ namespace MATruck.Domain.Models
         public string Lenght { get; set; }
         public string Description { get; set; }
 
-        public string Plate { get; set; }
+        public string TrailerPlate { get; set; }
+        public string TrailerNumber { get; set; }
+
         public string TitleNumber { get; set; }
         public string TitleState { get; set; }
         public DateTime TitleIssueDate { get; set; }
@@ -26,6 +25,8 @@ namespace MATruck.Domain.Models
         public DateTime PurchaseDate { get; set; }
 
         public string Status { get; set; } // Active, Standby, Deleted.
+
+        public ICollection<LoadDataRelationship> LoadDataRelationships { get; set; }
 
     }
 }

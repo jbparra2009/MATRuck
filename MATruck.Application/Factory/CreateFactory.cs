@@ -29,7 +29,6 @@ namespace MATruck.Application.CreateFactories
                 City = vm.City,
                 State = vm.State,
                 ZipCode = vm.ZipCode,
-                Created = vm.Created,
                 Status = vm.Status,
             });
 
@@ -55,7 +54,6 @@ namespace MATruck.Application.CreateFactories
         public string State { get; set; }
         public string ZipCode { get; set; }
 
-        public DateTime Created { get; set; }
         public string Status { get; set; } // Active, Standby, Deleted.
 
     }

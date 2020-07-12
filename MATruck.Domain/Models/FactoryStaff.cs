@@ -1,8 +1,12 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
 namespace MATruck.Domain.Models
 {
-    public class BrokerStaff
+    public class FactoryStaff
     {
         public int Id { get; set; }
         public string FirstName { get; set; }
@@ -13,7 +17,7 @@ namespace MATruck.Domain.Models
         public string Fax1 { get; set; }
         public DateTime Created { get; set; } = DateTime.Now;
 
-        public int BrokerId { get; set; }
-        public Broker Broker { get; set; }
+        public int FactoryId { get; set; }
+        public Factory Factory { get; set; }
     }
 }

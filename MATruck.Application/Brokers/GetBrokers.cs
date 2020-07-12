@@ -17,7 +17,7 @@ namespace MATruck.Application.GetBrokers
         public IEnumerable<BrokerViewModel> Do() => 
             _ctx.Brokers.ToList().Select(x => new BrokerViewModel
             {
-                Name = x.Name,
+                BrokerName = x.BrokerName,
                 Description = x.Description,
                 Email = x.Email,
                 Phone1 = x.Phone1,
@@ -34,7 +34,7 @@ namespace MATruck.Application.GetBrokers
 
     public class BrokerViewModel
     {
-        public string Name { get; set; }
+        public string BrokerName { get; set; }
         public string Description { get; set; }
         public string Email { get; set; }
         public string Phone1 { get; set; }

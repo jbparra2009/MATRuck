@@ -27,7 +27,8 @@ namespace MATruck.Application.GetTrailers
                 BodyType = x.BodyType,
                 Lenght = x.Lenght,
                 Description = x.Description,
-                Plate = x.Plate,
+                TrailerPlate = x.TrailerPlate,
+                TrailerNumber = x.TrailerNumber,
                 TitleNumber = x.TitleNumber,
                 TitleState = x.TitleState,
                 TitleIssueDate = x.TitleIssueDate,
@@ -49,7 +50,9 @@ namespace MATruck.Application.GetTrailers
         public string Lenght { get; set; }
         public string Description { get; set; }
 
-        public string Plate { get; set; }
+        public string TrailerPlate { get; set; }
+        public string TrailerNumber { get; set; }
+
         public string TitleNumber { get; set; }
         public string TitleState { get; set; }
         public DateTime TitleIssueDate { get; set; }

@@ -26,7 +26,8 @@ namespace MATruck.Application.CreateTrailers
                 BodyType = vm.BodyType,
                 Lenght = vm.Lenght,
                 Description = vm.Description,
-                Plate = vm.Plate,
+                TrailerPlate = vm.TrailerPlate,
+                TrailerNumber = vm.TrailerNumber,
                 TitleNumber = vm.TitleNumber,
                 TitleState = vm.TitleState,
                 TitleIssueDate = vm.TitleIssueDate,
@@ -51,7 +52,9 @@ namespace MATruck.Application.CreateTrailers
         public string Lenght { get; set; }
         public string Description { get; set; }
 
-        public string Plate { get; set; }
+        public string TrailerPlate { get; set; }
+        public string TrailerNumber { get; set; }
+
         public string TitleNumber { get; set; }
         public string TitleState { get; set; }
         public DateTime TitleIssueDate { get; set; }

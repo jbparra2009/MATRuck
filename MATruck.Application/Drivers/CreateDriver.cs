@@ -39,7 +39,6 @@ namespace MATruck.Application.CreateDrivers
                 CDLState = vm.CDLState,
                 CorpName = vm.CorpName,
                 EIN = vm.EIN,
-                Created = vm.Created,
                 Status = vm.Status,
             });
 
@@ -76,7 +75,6 @@ namespace MATruck.Application.CreateDrivers
         public string CorpName { get; set; }
         public string EIN { get; set; }
 
-        public DateTime Created { get; set; }
         public string Status { get; set; } // Active, Standby, Deleted.
 
     }

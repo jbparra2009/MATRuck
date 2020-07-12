@@ -18,7 +18,7 @@ namespace MATruck.Application.CreateBrokers
         {
             _ctx.Brokers.Add(new Broker
             {
-                Name = vm.Name,
+                BrokerName = vm.BrokerName,
                 Description = vm.Description,
                 Email = vm.Email,
                 Phone1 = vm.Phone1,
@@ -28,7 +28,6 @@ namespace MATruck.Application.CreateBrokers
                 City = vm.City,
                 State = vm.State,
                 ZipCode = vm.ZipCode,
-                Created = vm.Created,
                 Status = vm.Status,
             });
 
@@ -38,7 +37,7 @@ namespace MATruck.Application.CreateBrokers
     }
     public class BrokerViewModel
     {
-        public string Name { get; set; }
+        public string BrokerName { get; set; }
         public string Description { get; set; }
         public string Email { get; set; }
         public string Phone1 { get; set; }
@@ -50,7 +49,6 @@ namespace MATruck.Application.CreateBrokers
         public string State { get; set; }
         public string ZipCode { get; set; }
 
-        public DateTime Created { get; set; }
         public string Status { get; set; } // Active, Standby, Deleted.
 
     }

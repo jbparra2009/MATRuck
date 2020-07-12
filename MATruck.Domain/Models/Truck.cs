@@ -18,8 +18,8 @@ namespace MATruck.Domain.Models
         public string Lenght { get; set; }
         public string Description { get; set; }
 
-        public string Plate { get; set; }
-        public string UnitNumber { get; set; }
+        public string TruckPlate { get; set; }
+        public string TruckNumber { get; set; }
 
         public string RegistrantName { get; set; }
         public string TitleState { get; set; }
@@ -31,5 +31,7 @@ namespace MATruck.Domain.Models
         public DateTime PurchaseDate { get; set; }
 
         public string Status { get; set; } // Active, Standby, Sold, Deleted.
+
+        public ICollection<LoadDataRelationship> LoadDataRelationships { get; set; }
     }
 }

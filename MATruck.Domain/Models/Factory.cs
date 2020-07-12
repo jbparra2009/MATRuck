@@ -1,9 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations.Schema;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace MATruck.Domain.Models
 {
@@ -25,7 +22,11 @@ namespace MATruck.Domain.Models
         public string State { get; set; }
         public string ZipCode { get; set; }
 
-        public DateTime Created { get; set; }
+        public DateTime Created { get; set; } = DateTime.Now;
         public string Status { get; set; } // Active, Standby, Deleted.
+
+        public ICollection<FactoryStaff> FactoryStaff { get; set; }
+
+        public ICollection<LoadDataRelationship> LoadDataRelationships { get; set; }
     }
 }
