@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using MATruck.Application.CreateDispatches;
-using MATruck.Application.GetDispatches;
+using MATruck.Application.Dispatches;
 using MATruck.Database;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
@@ -18,9 +18,9 @@ namespace MATruck.UI.Pages
         }
 
         [BindProperty]
-        public Application.CreateDispatches.DispatchViewModel Dispatch { get; set; }
+        public CreateDispatch.DispatchViewModel Dispatch { get; set; }
 
-        public IEnumerable<Application.GetDispatches.DispatchViewModel> Dispatches { get; set; }
+        public IEnumerable<GetDispatches.DispatchViewModel> Dispatches { get; set; }
 
         public void OnGet()
         {

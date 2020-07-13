@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using MATruck.Application.CreateTrucks;
-using MATruck.Application.GetTrucks;
+using MATruck.Application.Trucks;
 using MATruck.Database;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
@@ -18,9 +18,9 @@ namespace MATruck.UI.Pages
         }
 
         [BindProperty]
-        public Application.CreateTrucks.TruckViewModel Truck { get; set; }
+        public CreateTruck.TruckViewModel Truck { get; set; }
 
-        public IEnumerable<Application.GetTrucks.TruckViewModel> Trucks { get; set; }
+        public IEnumerable<GetTrucks.TruckViewModel> Trucks { get; set; }
 
         public void OnGet()
         {

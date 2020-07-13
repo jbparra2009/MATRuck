@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using MATruck.Application.CreateFactories;
-using MATruck.Application.GetFactories;
+using MATruck.Application.Factories;
 using MATruck.Database;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
@@ -18,9 +18,9 @@ namespace MATruck.UI.Pages
         }
 
         [BindProperty]
-        public Application.CreateFactories.FactoryViewModel Factory { get; set; }
+        public CreateFactory.FactoryViewModel Factory { get; set; }
 
-        public IEnumerable<Application.GetFactories.FactoryViewModel> Factories { get; set; }
+        public IEnumerable<GetFactories.FactoryViewModel> Factories { get; set; }
 
         public void OnGet()
         {

@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using MATruck.Application.CreateDrivers;
-using MATruck.Application.GetDrivers;
+using MATruck.Application.Drivers;
 using MATruck.Database;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
@@ -18,9 +18,9 @@ namespace MATruck.UI.Pages
         }
 
         [BindProperty]
-        public Application.CreateDrivers.DriverViewModel Driver { get; set; }
+        public CreateDriver.DriverViewModel Driver { get; set; }
 
-        public IEnumerable<Application.GetDrivers.DriverViewModel> Drivers { get; set; }
+        public IEnumerable<GetDrivers.DriverViewModel> Drivers { get; set; }
 
         public void OnGet()
         {
