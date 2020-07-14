@@ -2,26 +2,25 @@
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace MATruck.Application.BrokersAdmin
+namespace MATruck.Application.DispatchesAdmin
 {
-    public class DeleteBroker
+    public class DeleteDispatch
     {
         private readonly ApplicationDbContext _ctx;
 
-        public DeleteBroker(ApplicationDbContext ctx)
+        public DeleteDispatch(ApplicationDbContext ctx)
         {
             _ctx = ctx;
         }
 
         public async Task<bool> Do(int id)
         {
-            var Broker = _ctx.Brokers.FirstOrDefault(x => x.Id == id);
-            _ctx.Brokers.Remove(Broker);
+            var Dispatch = _ctx.Dispatches.FirstOrDefault(x => x.Id == id);
+            _ctx.Dispatches.Remove(Dispatch);
 
             await _ctx.SaveChangesAsync();
 
             return true;
         }
-
-    }    
+    }
 }

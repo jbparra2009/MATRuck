@@ -3,26 +3,6 @@
 @{
 }
 
-<div class="row wrapper border-bottom white-bg page-heading">
-    <div class="col-lg-10">
-        <h2>E-commerce product list</h2>
-        <ol class="breadcrumb">
-            <li class="breadcrumb-item">
-                <a asp-area="" asp-page="/Admin/Index"><i class="fa fa-server"></i> <span class="nav-label">Admin Index</span></a>
-            </li>
-            <li class="breadcrumb-item">
-                <a>E-commerce</a>
-            </li>
-            <li class="active breadcrumb-item">
-                <strong>Product list</strong>
-            </li>
-        </ol>
-    </div>
-    <div class="col-lg-2">
-
-    </div>
-</div>
-
 <div id="app" class="wrapper wrapper-content animated fadeInRight ecommerce">
     <div class="ibox-content m-b-sm border-bottom" v-if="editing">
         <div class="row">
@@ -158,47 +138,6 @@
 @section scripts{
     <script src="https://cdn.jsdelivr.net/npm/vue@2.6.10/dist/vue.js"></script>
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-    <script src="~/js/admin/main.js"></script>
-
+    @*<script src="~/js/admin/main.js"></script>*@
+    <script src="~/js/admin/brokers.js"></script>
 }
-
-
-@*<div id="app">
-    <div v-if="!editing">
-        <button @@click="newBroker">Add New Broker</button>
-        <p v-for="(broker, index) in brokers">
-            {{broker.id}} - {{broker.brokerName}} - {{broker.email}} - {{broker.phone1}}
-            <a @@click="editBroker(broker.id, index)">Edit</a>
-            <a @@click="deleteBroker(broker.id, index)">Remove</a>
-        </p>
-    </div>
-
-    <div v-if="editing">
-        <input v-model="brokerModel.brokerName" />
-        <input v-model="brokerModel.description" />
-        <input v-model="brokerModel.email" />
-        <input v-model="brokerModel.phone1" />
-        <input v-model="brokerModel.phone2" />
-        <input v-model="brokerModel.address1" />
-        <input v-model="brokerModel.address2" />
-        <input v-model="brokerModel.city" />
-        <input v-model="brokerModel.state" />
-        <input v-model="brokerModel.zipCode" />
-        <input v-model="brokerModel.status" />
-
-        <button @@click="createBroker" v-if="!brokerModel.id">Create Broker</button>
-        <button @@click="updateBroker" v-else>Update Broker</button>
-        <button @@click="cancel">Cancel</button>
-    </div>
-</div>*@
-
-@*@section scripts{
-    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.10/dist/vue.js"></script>
-    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-    <script src="~/js/admin/main.js"></script>
-
-}*@
-
-
-
-

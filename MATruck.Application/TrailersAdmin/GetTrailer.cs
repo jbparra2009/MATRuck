@@ -1,43 +1,43 @@
 ﻿using MATruck.Database;
-using MATruck.Domain.Models;
 using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
 using System.Threading.Tasks;
 
-namespace MATruck.Application.CreateTrailers
+namespace MATruck.Application.TrailersAdmin
 {
-    public class CreateTrailer
+    public class GetTrailer
     {
         private readonly ApplicationDbContext _ctx;
 
-        public CreateTrailer(ApplicationDbContext ctx)
+        public GetTrailer(ApplicationDbContext ctx)
         {
             _ctx = ctx;
         }
 
-        public async Task Do(TrailerViewModel vm)
-        {
-            _ctx.Trailers.Add(new Trailer
+        public TrailerViewModel Do(int id) =>
+            _ctx.Trailers.Where(x => x.Id == id).Select(x => new TrailerViewModel
             {
-                VIN = vm.VIN,
-                Year = vm.Year,
-                Make = vm.Make,
-                Model = vm.Model,
-                Class = vm.Class,
-                BodyType = vm.BodyType,
-                Lenght = vm.Lenght,
-                Description = vm.Description,
-                TrailerPlate = vm.TrailerPlate,
-                TrailerNumber = vm.TrailerNumber,
-                TitleNumber = vm.TitleNumber,
-                TitleState = vm.TitleState,
-                TitleIssueDate = vm.TitleIssueDate,
-                PurchasePrice = vm.PurchasePrice,
-                PurchaseDate = vm.PurchaseDate,
-                Status = vm.Status,
-            });
-
-            await _ctx.SaveChangesAsync();
-        }
+                Id = x.Id,
+                VIN = x.VIN,
+                Year = x.Year,
+                Make = x.Make,
+                Model = x.Model,
+                Class = x.Class,
+                BodyType = x.BodyType,
+                Lenght = x.Lenght,
+                Description = x.Description,
+                TrailerPlate = x.TrailerPlate,
+                TrailerNumber = x.TrailerNumber,
+                TitleNumber = x.TitleNumber,
+                TitleState = x.TitleState,
+                TitleIssueDate = x.TitleIssueDate,
+                PurchasePrice = x.PurchasePrice,
+                PurchaseDate = x.PurchaseDate,
+                Status = x.Status,
+            })
+            .FirstOrDefault();
 
         public class TrailerViewModel
         {

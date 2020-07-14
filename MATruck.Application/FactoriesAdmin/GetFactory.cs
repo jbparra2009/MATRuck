@@ -1,38 +1,39 @@
 ﻿using MATruck.Database;
-using MATruck.Domain.Models;
+using System;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations.Schema;
-using System.Threading.Tasks;
+using System.Linq;
 
-namespace MATruck.Application.CreateFactories
+namespace MATruck.Application.FactoriesAdmin
 {
-    public class CreateFactory
+    public class GetFactory
     {
         private readonly ApplicationDbContext _ctx;
 
-        public CreateFactory(ApplicationDbContext ctx)
+        public GetFactory(ApplicationDbContext ctx)
         {
             _ctx = ctx;
         }
 
-        public async Task Do(FactoryViewModel vm)
-        {
-            _ctx.Factories.Add(new Factory
+        public FactoryViewModel Do(int id) =>
+            _ctx.Factories.Where(x => x.Id == id).Select(x => new FactoryViewModel
             {
-                Name = vm.Name,
-                Description = vm.Description,
-                Email = vm.Email,
-                Phone1 = vm.Phone1,
-                Phone2 = vm.Phone2,
-                Address1 = vm.Address1,
-                Address2 = vm.Address2,
-                City = vm.City,
-                State = vm.State,
-                ZipCode = vm.ZipCode,
-                Status = vm.Status,
-            });
-
-            await _ctx.SaveChangesAsync();
-        }
+                Id = x.Id,
+                Name = x.Name,
+                Description = x.Description,
+                Email = x.Email,
+                Phone1 = x.Phone1,
+                Phone2 = x.Phone2,
+                Rate = x.Rate,
+                Address1 = x.Address1,
+                Address2 = x.Address2,
+                City = x.City,
+                State = x.State,
+                ZipCode = x.ZipCode,
+                Created = x.Created,
+                Status = x.Status,
+            })
+            .FirstOrDefault();
 
         public class FactoryViewModel
         {
@@ -52,6 +53,7 @@ namespace MATruck.Application.CreateFactories
             public string State { get; set; }
             public string ZipCode { get; set; }
 
+            public DateTime Created { get; set; }
             public string Status { get; set; } // Active, Standby, Deleted.
 
         }

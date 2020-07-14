@@ -1,49 +1,49 @@
 ﻿using MATruck.Database;
-using MATruck.Domain.Models;
 using System;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations.Schema;
-using System.Threading.Tasks;
+using System.Linq;
 
-namespace MATruck.Application.CreateDrivers
+namespace MATruck.Application.DriversAdmin
 {
-    public class CreateDriver
+    public class GetDriver
     {
         private readonly ApplicationDbContext _ctx;
 
-        public CreateDriver(ApplicationDbContext ctx)
+        public GetDriver(ApplicationDbContext ctx)
         {
             _ctx = ctx;
         }
 
-        public async Task Do(DriverViewModel vm)
-        {
-            _ctx.Drivers.Add(new Driver
+        public DriverViewModel Do(int id) =>
+            _ctx.Drivers.Where(x => x.Id == id).Select(x => new DriverViewModel
             {
-                FirstName = vm.FirstName,
-                LastName = vm.LastName,
-                Description = vm.Description,
-                Email = vm.Email,
-                Phone1 = vm.Phone1,
-                Phone2 = vm.Phone2,
-                Rate = vm.Rate,
-                Address1 = vm.Address1,
-                Address2 = vm.Address2,
-                City = vm.City,
-                State = vm.State,
-                ZipCode = vm.ZipCode,
-                SS = vm.SS,
-                DOB = vm.DOB,
-                CDLClass = vm.CDLClass,
-                CDLIssued = vm.CDLIssued,
-                CDLExpires = vm.CDLExpires,
-                CDLState = vm.CDLState,
-                CorpName = vm.CorpName,
-                EIN = vm.EIN,
-                Status = vm.Status,
-            });
+                Id = x.Id,
+                FirstName = x.FirstName,
+                LastName = x.LastName,
+                Description = x.Description,
+                Email = x.Email,
+                Phone1 = x.Phone1,
+                Phone2 = x.Phone2,
+                Rate = x.Rate,
+                Address1 = x.Address1,
+                Address2 = x.Address2,
+                City = x.City,
+                State = x.State,
+                ZipCode = x.ZipCode,
+                SS = x.SS,
+                DOB = x.DOB,
+                CDLClass = x.CDLClass,
+                CDLIssued = x.CDLIssued,
+                CDLExpires = x.CDLExpires,
+                CDLState = x.CDLState,
+                CorpName = x.CorpName,
+                EIN = x.EIN,
+                Created = x.Created,
+                Status = x.Status,
 
-            await _ctx.SaveChangesAsync();
-        }
+            })
+            .FirstOrDefault();
 
         public class DriverViewModel
         {
@@ -74,6 +74,7 @@ namespace MATruck.Application.CreateDrivers
             public string CorpName { get; set; }
             public string EIN { get; set; }
 
+            public DateTime Created { get; set; }
             public string Status { get; set; } // Active, Standby, Deleted.
 
         }

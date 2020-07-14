@@ -1,9 +1,6 @@
 using System.Collections.Generic;
-using System.Threading.Tasks;
-using MATruck.Application.CreateDrivers;
 using MATruck.Application.Drivers;
 using MATruck.Database;
-using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 
 namespace MATruck.UI.Pages
@@ -17,9 +14,6 @@ namespace MATruck.UI.Pages
             _ctx = ctx;
         }
 
-        [BindProperty]
-        public CreateDriver.DriverViewModel Driver { get; set; }
-
         public IEnumerable<GetDrivers.DriverViewModel> Drivers { get; set; }
 
         public void OnGet()
@@ -27,11 +21,5 @@ namespace MATruck.UI.Pages
             Drivers = new GetDrivers(_ctx).Do();
         }
 
-        public async Task<IActionResult> OnPost()
-        {
-            await new CreateDriver(_ctx).Do(Driver);
-
-            return RedirectToPage("Driver");
-        }
     }
 }

@@ -1,44 +1,43 @@
 ﻿using MATruck.Database;
-using MATruck.Domain.Models;
 using System;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations.Schema;
-using System.Threading.Tasks;
+using System.Linq;
 
-namespace MATruck.Application.CreateDispatches
+namespace MATruck.Application.DispatchesAdmin
 {
-    public class CreateDispatch
+    public class GetDispatch
     {
         private readonly ApplicationDbContext _ctx;
 
-        public CreateDispatch(ApplicationDbContext ctx)
+        public GetDispatch(ApplicationDbContext ctx)
         {
             _ctx = ctx;
         }
 
-        public async Task Do(DispatchViewModel vm)
-        {
-            _ctx.Dispatches.Add(new Dispatch
+        public DispatchViewModel Do(int id) =>
+            _ctx.Dispatches.Where(x => x.Id == id).Select(x => new DispatchViewModel
             {
-                FirstName = vm.FirstName,
-                LastName = vm.LastName,
-                Description = vm.Description,
-                Email = vm.Email,
-                Phone1 = vm.Phone1,
-                Phone2 = vm.Phone2,
-                Rate = vm.Rate,
-                Address1 = vm.Address1,
-                Address2 = vm.Address2,
-                City = vm.City,
-                State = vm.State,
-                ZipCode = vm.ZipCode,
-                SS = vm.SS,
-                CorpName = vm.CorpName,
-                EIN = vm.EIN,
-                Status = vm.Status,
-            });
-
-            await _ctx.SaveChangesAsync();
-        }
+                Id = x.Id,
+                FirstName = x.FirstName,
+                LastName = x.LastName,
+                Description = x.Description,
+                Email = x.Email,
+                Phone1 = x.Phone1,
+                Phone2 = x.Phone2,
+                Rate = x.Rate,
+                Address1 = x.Address1,
+                Address2 = x.Address2,
+                City = x.City,
+                State = x.State,
+                ZipCode = x.ZipCode,
+                SS = x.SS,
+                CorpName = x.CorpName,
+                EIN = x.EIN,
+                Created = x.Created,
+                Status = x.Status,
+            })
+            .FirstOrDefault();
 
         public class DispatchViewModel
         {
@@ -63,6 +62,7 @@ namespace MATruck.Application.CreateDispatches
             public string CorpName { get; set; }
             public string EIN { get; set; }
 
+            public DateTime Created { get; set; }
             public string Status { get; set; } // Active, Standby, Deleted.
 
         }

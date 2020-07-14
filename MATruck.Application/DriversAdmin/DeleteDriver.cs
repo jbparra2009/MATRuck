@@ -2,26 +2,26 @@
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace MATruck.Application.BrokersAdmin
+namespace MATruck.Application.DriversAdmin
 {
-    public class DeleteBroker
+    public class DeleteDriver
     {
         private readonly ApplicationDbContext _ctx;
 
-        public DeleteBroker(ApplicationDbContext ctx)
+        public DeleteDriver(ApplicationDbContext ctx)
         {
             _ctx = ctx;
         }
 
         public async Task<bool> Do(int id)
         {
-            var Broker = _ctx.Brokers.FirstOrDefault(x => x.Id == id);
-            _ctx.Brokers.Remove(Broker);
+            var Driver = _ctx.Drivers.FirstOrDefault(x => x.Id == id);
+            _ctx.Drivers.Remove(Driver);
 
             await _ctx.SaveChangesAsync();
 
             return true;
         }
 
-    }    
+    }
 }
