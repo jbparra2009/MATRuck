@@ -64,7 +64,6 @@ namespace MATruck.Application.TrailersAdmin
 
         public class Request
         {
-            public int Id { get; set; }
             public string VIN { get; set; }
             public string Year { get; set; }
             public string Make { get; set; }

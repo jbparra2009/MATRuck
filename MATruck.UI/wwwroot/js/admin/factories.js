@@ -17,7 +17,6 @@
             city: "",
             state: "",
             zipCode: "",
-            created: "",
             status: ""
         },
         factories: []
@@ -45,7 +44,6 @@
                         city: factory.city,
                         state: factory.state,
                         zipCode: factory.zipCode,
-                        created: factory.created,
                         status: factory.status
                     };
                 })

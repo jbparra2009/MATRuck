@@ -21,7 +21,6 @@
             ss: "",
             corpName: "",
             ein: "",
-            created: "",
             status: ""
         },
         dispatches: []
@@ -37,7 +36,7 @@
                     console.log(res);
                     var dispatch = res.data;
                     this.dispatchModel = {
-                        id: 0,
+                        id: dispatch.id,
                         firstName: dispatch.firstName,
                         lastName: dispatch.lastName,
                         description: dispatch.description,
@@ -53,7 +52,6 @@
                         ss: dispatch.ss,
                         corpName: dispatch.corpName,
                         ein: dispatch.ein,
-                        created: dispatch.created,
                         status: dispatch.status
                     };
                 })
